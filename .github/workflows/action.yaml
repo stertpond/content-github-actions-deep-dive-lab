@@ -1,5 +1,4 @@
 name:  Deploy lambda function
-
 on:
   push:
     branches: 
@@ -7,15 +6,15 @@ on:
 
 jobs:
   build:
-    runs-on ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout out code
-      uses: actions/checkout@v2
-      -name: set up python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-      -name: Install libraries
+        uses: actions/checkout@v2
+      - name: set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install libraries
         run: |
           cd function
           python -m pip install --upgrade pip
