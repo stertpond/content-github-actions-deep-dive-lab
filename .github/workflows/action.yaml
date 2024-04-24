@@ -18,5 +18,10 @@ jobs:
           mkdir function
           cd function
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt -t .; fi      
+          if [ -f requirements.txt ]; then pip install -r requirements.txt -t .; fi
+      - name: Archive artifacts
+        uses: actions/upload-artifacts@v2
+        with:
+          name: zipped-bundle
+          path: ${{ github.sha }}.zip
 
